@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Aplicativo</string>
+    <string-array name="idade">
+        <item>12-20</item>
+        <item>21-28</item>
+        <item>29-40</item>
+        <item>41-60</item>
+        <item>60+</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
