@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aplicativo">
         <activity
+            android:name=".pagina3"
+            android:exported="false" />
+        <activity
             android:name=".pagina2"
             android:exported="false" />
         <activity

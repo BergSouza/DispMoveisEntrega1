@@ -12,9 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -108,13 +106,19 @@ public class pagina2 extends AppCompatActivity {
             case R.id.menuPag1:
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                //Toast.makeText(this, "Página 2 Indisponível", Toast.LENGTH_LONG).show();
                 break;
             case R.id.menuPag2:
                 Toast.makeText(this, "Você já está na página 2", Toast.LENGTH_LONG).show();
-                //Toast.makeText(this, "Página 2 Indisponível", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuPag3:
+                Intent intent2 = new Intent(this, pagina3.class);
+                startActivity(intent2);
+                Toast.makeText(this, "Página 2 Indisponível", Toast.LENGTH_LONG).show();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
+
         }
         return true;
     }

@@ -8,4 +8,7 @@
     <item
         android:id="@+id/menuPag2"
         android:title="Pagina 2" />
+    <item
+        android:id="@+id/menuPag3"
+        android:title="Página 3" />
 </menu>

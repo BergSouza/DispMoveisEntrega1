@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pagina3">
+
+    <GridLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_margin="10sp"
+        android:rowCount="5"
+        android:columnCount="2"
+        >
+
+        <Button
+            android:id="@+id/btnLong1"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Me pressione!"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/btnLong2"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Me pressione!"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/btnLong3"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Me pressione!"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/btnLong4"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Me pressione!"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/btnLong5"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Me pressione!"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/btnLong6"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Me pressione!"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/btnLong7"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Me pressione!"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/btnLong8"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Me pressione!"
+            android:layout_margin="10sp"/>
+
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,7 +23,7 @@ import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements androidx.appcompat.widget.PopupMenu.OnMenuItemClickListener, PopupMenu.OnMenuItemClickListener {
 
     private ToggleButton toggleButton;
     private TextView txtMsg;
@@ -35,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton rdBtnMasculino;
     private RadioButton rdBtnFeminino;
     private TextView txtSexo;
-    private EditText atCpEdtTxtPais;
     private Spinner spnLista;
     private TextView txtIdade;
     private ListView listView;
@@ -53,13 +54,11 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.idade, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-/*
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, PAISES);
-        AutoCompleteTextView textView = (AutoCompleteTextView)
-                findViewById(R.id.atCpEdtTxtPais);
-        textView.setAdapter(adapter);
- */
+
+        AutoCompleteTextView atCpPais =  findViewById(R.id.atCpPais);
+        ArrayAdapter<String> atArrayAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, PAISES);
+        atCpPais.setAdapter(atArrayAdapter);
     }
 
     @Override
@@ -67,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public void popUpMenu(View v){
+        PopupMenu popupmenu = new PopupMenu(this, v);
+        popupmenu.setOnMenuItemClickListener(this);
+        popupmenu.inflate(R.menu.menu);
+        popupmenu.show();
     }
 
     @Override
@@ -81,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 //Toast.makeText(this, "Página 2 Indisponível", Toast.LENGTH_LONG).show();
                 break;
+            case R.id.menuPag3:
+                Intent intent2 = new Intent(this, pagina3.class);
+                startActivity(intent2);
+                //Toast.makeText(this, "Página 2 Indisponível", Toast.LENGTH_LONG).show();
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -88,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static final String[] PAISES = new String[] {
-            "Alemanha","Argentina","Bélgica","Brasil","Chile",
-            "Espanha","Estados Unidos","Portugal"
+            "Alemanha","Argentina","África do Sul","Bélgica","Brasil","Chile","Canadá",
+            "Espanha","Estados Unidos","Holanda","Inglaterra","Itália","Portugal","Rússia","Uruguai"
     };
 
     public void nomeCompleto(View view){
@@ -132,10 +143,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void pais(View vie){
-
-    }
-
     public void addLista(View view){
         listView = findViewById(R.id.listView);
         edtTxtLista = (EditText) findViewById(R.id.edtTxtLista);
@@ -143,16 +150,33 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> arAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrList);
         listView.setAdapter(arAdapter);
-        //txtItensLista = findViewById(R.id.txtItensLista);
-        //txtItensLista.setText("");
-        //for (int i = 0; i < arrList.size(); i++) {
-        //    txtItensLista.setText(txtItensLista.getText() + arrList.get(i) + "\n");
-        //}
         edtTxtLista.setText("");
+    }
 
-        /*adapter = new ArrayAdapter<String>(getApplicationContext(),
-                android.R.layout.simple_spinner_item, arrList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnLista.setAdapter(adapter);*/
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuPag1:
+                Toast.makeText(this, "Você já está na página 1", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuPag2:
+                Intent intent = new Intent(this, pagina2.class);
+                startActivity(intent);
+                //Toast.makeText(this, "Página 2 Indisponível", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuPag3:
+                Intent intent2 = new Intent(this, pagina3.class);
+                startActivity(intent2);
+                //Toast.makeText(this, "Página 2 Indisponível", Toast.LENGTH_LONG).show();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
